@@ -1,0 +1,55 @@
+##
+## supann-fd.schema - Needed by Fusion Directory for managing Taxonomy
+##
+
+# Attributes
+attributetype ( 1.3.6.1.4.1.38414.128.10.1 NAME 'fdTaxonomyTermCode'
+  DESC 'FusionDirectory - Code of Term belong to a taxonomy'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.2 NAME 'fdTaxonomyTermLongLabel'
+  DESC 'FusionDirectory - long label of a term'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.3 NAME 'fdTaxonomyReferentiel'
+  DESC 'FusionDirectory - Referentiel which contain the term'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.4 NAME 'fdTaxonomyName'
+  DESC 'FusionDirectory - Taxonomy which contain the term'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.5 NAME 'fdTaxonomyTermStartDate'
+  DESC 'FusionDirectory - Term validity start date'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.6 NAME 'fdTaxonomyTermEndDate'
+  DESC 'FusionDirectory - Term validity end date'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.128.10.7 NAME 'fdTaxonomyTermCompleteCode'
+  DESC 'FusionDirectory - Taxonomy Term complete Code with referentiel and taxonomy'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+# Object Class
+objectclass ( 1.3.6.1.4.1.38414.128.20.1 NAME 'fdTaxonomyTerms'
+  DESC 'FusionDirectory Taxonomy Terms Management'
+  MUST ( fdTaxonomyTermCode )
+  MAY (
+    fdTaxonomyTermLongLabel $ fdTaxonomyReferentiel $ fdTaxonomyName $ fdTaxonomyTermStartDate $ fdTaxonomyTermEndDate $ description $ fdTaxonomyTermCompleteCode
+  ) )

@@ -1,0 +1,28 @@
+# Plugin description
+
+This plugin is dediczted to provide a way to organize taxonomy with several terms.
+It could be useful for other plugin which use a list of taxonomy like Supann
+
+
+# Structuration
+
+a taxonomy is a a kind of structured data with contain some terms
+a taxonomy contains
+- a name
+- a start validation date
+- a end Validation date
+- a policy wich could be : 
+  -> opened : some items could be added / modify / deleted  by manager
+  -> halfopened : items could be only added (deleted items should be equivalent to a temrs with a expired enddate)  
+  -> closed : items couldnt be added /edited /deleted  by manager
+  
+a terms contains
+- name of taxonomy which term belong to
+- a short name
+- a long nom
+- a description 
+  - a start validation date
+  - a end Validation date
+
+
+
