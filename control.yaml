@@ -4,11 +4,11 @@ information:
   version : "0.1"
   authors : ['antoine.gallavardin@free.fr']
   status : "dev"
-  iconUrl: 'https://github.com/gallak/fusiondirectory-plugins-taxonomy/blob/main/html/themes/breezy/icons/48/apps/term.png'
+  iconUrl: 'https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/html/themes/breezy/icons/48/apps/term.png'
   screenshotUrl:
-   - https://github.com/gallak/fusiondirectory-plugins-taxonomy/blob/main/docs/TaxonomyDefinition.png
-   - https://github.com/gallak/fusiondirectory-plugins-taxonomy/blob/main/docs/TaxonomyTermEdition.png
-   - https://github.com/gallak/fusiondirectory-plugins-taxonomy/blob/main/docs/TaxonomyTermList.png
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyDefinition.png
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyTermEdition.png
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyTermList.png
   logoUrl : https://github.com/gallak/fusiondirectory-plugins-taxonomy/wiki/logo.png
   tags: ['plugin','administration']
   license : "GPLv3"
