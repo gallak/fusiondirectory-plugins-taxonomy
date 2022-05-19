@@ -22,6 +22,7 @@
 class term extends simplePlugin
 {
 
+
   static function plInfo (): array
   {
     return [
@@ -31,8 +32,8 @@ class term extends simplePlugin
       'plObjectType'  => ['term' => [
         'name'        => _('Terms Lists'),
         'icon'        => 'geticon.php?context=applications&icon=term&size=16',
-        'ou'          => get_ou('fdTaxonomyTermsRDN'),
-        'mainAttr'    => 'fdTaxonomyTermCompleteCode',
+        'ou'          => get_ou('TaxonomyTermsRDN'),
+        'mainAttr'    => 'fdTaxonomyTermCode',
         ]],
       'plSearchAttrs'  => ['description'],
       'plProvidedAcls' => parent::generatePlProvidedAcls(static::getAttributesInfo(), TRUE)
@@ -59,7 +60,6 @@ class term extends simplePlugin
             _('Term Long Label'), _('Long Label of Term code'),
             'fdTaxonomyTermLongLabel', FALSE
           ),
-          new HiddenArrayAttribute('fdTaxonomyTermCompleteCode',FALSE,[]),
           new HiddenArrayAttribute('fdTaxonomyReferentiel',FALSE,[] ),
           new HiddenArrayAttribute('fdTaxonomyName',FALSE,[]),
           new TextAreaAttribute(
@@ -93,23 +93,8 @@ class term extends simplePlugin
       // TODO : test the policy and the start/end Date
       $ref_tax[] = $referentiel.$config->get_cfg_value('TaxonomySeparator').$taxonomy;
     }
-    var_dump($ref_tax);
     $this->attributesAccess['ReferentielAndTaxonomy']->setValue($this->fdTaxonomyReferentiel[0].$config->get_cfg_value('TaxonomySeparator').$this->fdTaxonomyName[0]);
     $this->attributesAccess['ReferentielAndTaxonomy']->setChoices($ref_tax);
-  }
-
-  protected function prepare_save (): array
-  {
-    global $config;
-    $refAndTex   = $this->attributesAccess['ReferentielAndTaxonomy']->getValue();
-    $hRefAndTex  = explode($config->get_cfg_value('TaxonomySeparator'), $refAndTex);
-    $this->fdTaxonomyReferentiel = $hRefAndTex[0];
-    $this->fdTaxonomyName = $hRefAndTex[1];
-    $this->ReferentielAndTaxonomy='';
-    $this->fdTaxonomyTermCompleteCode=$this->fdTaxonomyReferentiel."-".$this->fdTaxonomyName."-".$this->fdTaxonomyTermCode;
-    var_dump($this->fdTaxonomyTermCompleteCode);
-
-    return parent::prepare_save();
   }
 
 
@@ -119,22 +104,12 @@ class term extends simplePlugin
     global $config;
     $refAndTex   = $this->attributesAccess['ReferentielAndTaxonomy']->getValue();
     $hRefAndTex  = explode($config->get_cfg_value('TaxonomySeparator'), $refAndTex);
-
     $this->fdTaxonomyReferentiel = $hRefAndTex[0];
     $this->fdTaxonomyName = $hRefAndTex[1];
     $this->ReferentielAndTaxonomy='';
-    $this->fdTaxonomyTermCompleteCode=$this->fdTaxonomyReferentiel."-".$this->fdTaxonomyName."-".$this->fdTaxonomyTermCode;
-
-    return 'fdTaxonomyTermCompleteCode='.$this->fdTaxonomyTermCompleteCode.','.$config->get_cfg_value('fdTaxonomyTermsRDN').','.$this->base;
+    return $this->create_unique_dn('fdTaxonomyTermCode', get_ou('TaxonomyTermsRDN').$config->current['BASE']);
   }
 
-
-
-  function save (): array
-  {
-    $this->dn = $this->compute_dn();
-    return $this->attrs;
-  }
 
 
 

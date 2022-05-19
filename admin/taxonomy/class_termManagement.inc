@@ -1,4 +1,4 @@
-<?php
+*<?php
 /*
   This code is part of FusionDirectory (http://www.fusiondirectory.org/)
 
@@ -25,10 +25,10 @@ class termManagement extends management
 
   public static $columns = [
     ['ObjectTypeColumn', []],
-    ['LinkColumn',       ['attributes' => 'fdTaxonomyCode',              'label' => 'Name']],
+    ['LinkColumn',       ['attributes' => 'fdTaxonomyTermCode',              'label' => 'Name']],
     ['LinkColumn',       ['attributes' => 'fdTaxonomyReferentiel', 'label' => 'Referentiel']],
     ['LinkColumn',       ['attributes' => 'fdTaxonomyName',        'label' => 'Taxonomy']],
-    ['LinkColumn',       ['attributes' => 'description',           'label' => 'Description']],
+    ['LinkColumn',       ['attributes' => 'fdTaxonomyTermLongLabel',           'label' => 'Long Label']],
     ['ActionsColumn',    ['label' => 'Actions']],
   ];
 
