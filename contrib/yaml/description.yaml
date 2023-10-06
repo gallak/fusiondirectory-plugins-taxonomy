@@ -1,0 +1,89 @@
+information :
+  name : "taxo"
+  description : "plugins which allow to maintain a referential attributes"
+  version : "0.1"
+  authors : ['antoine.gallavardin@free.fr']
+  status : "dev"
+  screenshotUrl:
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-attributes/master/example.png
+  logoUrl : https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-attribues/master/html/themes/breezy/icons/48/apps/notes.png
+  tags : ["attribute","sso","lemonldap","configuration"]
+  license : "GPLv2"
+  origin : "source"
+
+support :
+  provider : "community"
+  homeUrl : "https://github.com/gallak/fusiondirectory-plugins-attributes"
+  ticketUrl : "https://github.com/gallak/fusiondirectory-plugins-attributes/issues"
+  discussionUrl : "https://github.com/gallak/fusiondirectory-plugins-attributes/wiki"
+  downloadUrl: "https://github.com/gallak/fusiondirectory-plugins-attributes/archive/refs/heads/master.zip"
+  schemaUrl : "https://schemas.fusiondirectory.info/"
+
+requirement:
+  fdVersion : 1.4
+  phpVersion : 7.2.0
+
+content :
+  fileList :
+  - './admin/systems/notes/class_notes.inc'
+  - './LICENSE'
+  - './example.png'
+  - './README.md'
+  - './locale/fr/fusiondirectory.po'
+  - './locale/en/fusiondirectory.po'
+  - './contrib/yaml/description.yaml'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+information:
+  name : "taxonomy"
+  description : "Allow to create taxonomy with terms, it could be useful for plugin like supann"
+  version : "0.1"
+  authors : ['antoine.gallavardin@free.fr']
+  status : "dev"
+  screenshotUrl:
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyDefinition.png
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyTermEdition.png
+   - https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/docs/TaxonomyTermList.png
+  logoUrl : 'https://raw.githubusercontent.com/gallak/fusiondirectory-plugins-taxonomy/main/html/themes/breezy/icons/48/apps/term.png'
+  tags: ['plugin','administration']
+  license : "GPLv3"
+  origin : "source"
+
+support:
+  provider : "community"
+  homeUrl : "https://github.com/gallak/fusiondirectory-plugins-taxonomy"
+  ticketUrl : "https://github.com/gallak/fusiondirectory-plugins-taxonomy/issues"
+  discussionUrl : "https://github.com/gallak/fusiondirectory-plugins-taxonomy/wiki"
+  downloadUrl: "https://github.com/gallak/fusiondirectory-plugins-taxonomy.tgz"
+  schemaUrl : "https://schemas.fusiondirectory.info/"
+
+
+requirement:
+  fdVersion : 1.4
+  phpVersion : 7.2.0
+content :
+  phpClassList : ['taxonomy']
+  ldapObjectList : ['fdTaxonomyPluginConf', 'fdTaxonomyTerms']
+  ldapAttributeList : ['fdTaxonomyTermsRDN','fdTaxonomyList','fdTaxonomySeparator','fdTaxonomyTermCode','fdTaxonomyTermLongLabel','fdTaxonomyReferentiel','fdTaxonomyName','fdTaxonomyTermStartDate','fdTaxonomyTermEndDate','fdTaxonomyTermCompleteCode']
+  fileList :
+    - './config/taxonomy/class_taxonomyConfig.inc'
+    - './html/themes/breezy/icons/48/apps/term.png'
+    - './html/themes/breezy/icons/16/apps/term.png'
+    - './admin/taxonomy/class_term.inc'
+    - './admin/taxonomy/class_termManagement.inc'
+
+
+
+
